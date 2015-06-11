@@ -1,0 +1,2 @@
+# NeteasyMusic
+一个利用wireshark抓包出来的pc客户端api制作的下载网易云音乐的音乐和Mv的一个小脚本。
