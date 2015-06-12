@@ -372,7 +372,8 @@ class neteasymusic:
         return result 
 
     # def download(self,downlist=[],path=os.path.realpath("/data/NeteasyMusic")):
-    def download(self,downlist=[],path=os.path.realpath(os.getcwd())):
+    def download(self,downlist=[],path=os.getcwd()):
+        path = os.path.realpath(path)
         cmd ="%s\n" \
         "  dir=%s\n" \
         "  out=%s\n" \
@@ -397,7 +398,7 @@ def main():
     n = neteasymusic()
     import argparse
     parser = argparse.ArgumentParser(description='下载网易云音乐的歌曲和MV')
-    parser.add_argument("-v", "--version", version='%(prog)s 0.1',help='显示版本号',action="version")
+    parser.add_argument("-v", "--version", version='%(prog)s 0.3',help='显示版本号',action="version")
     parser.add_argument("-a", action="store", dest="artist", help='下载歌手热歌，后面带歌手id。')
     parser.add_argument("-b", action="store", dest="album", help='下载专辑歌曲，后面带专辑id。')
     parser.add_argument("-p", action="store", dest="playlist", help='下载歌单歌曲，后面带歌单id')
@@ -414,7 +415,7 @@ def main():
         if uuid.isdigit():
             content = n.songofartist(uuid)
             if args.path :
-                n.download(content,path)
+                n.download(content,args.path)
             else :
                 n.download(content)
         else :
@@ -424,7 +425,7 @@ def main():
         if uuid.isdigit():
             content = n.songofalbum(uuid)
             if args.path :
-                n.download(content,path)
+                n.download(content,args.path)
             else :
                 n.download(content)
         else :
@@ -434,7 +435,7 @@ def main():
         if uuid.isdigit():
             content = n.songofplaylist(uuid)
             if args.path :
-                n.download(content,path)
+                n.download(content,args.path)
             else :
                 n.download(content)
         else :
@@ -444,7 +445,7 @@ def main():
         if uuid.isdigit():
             content = n.mvaboutartist(uuid)
             if args.path :
-                n.download(content,path)
+                n.download(content,args.path)
             else :
                 n.download(content)
         else :
@@ -454,7 +455,7 @@ def main():
         if uuid.isdigit():
             content = n.mvofartist(uuid)
             if args.path :
-                n.download(content,path)
+                n.download(content,args.path)
             else :
                 n.download(content)
         else :
@@ -464,7 +465,7 @@ def main():
         if uuid.isdigit():
             content = n.mvofalbum(uuid)
             if args.path :
-                n.download(content,path)
+                n.download(content,args.path)
             else :
                 n.download(content)
         else :
@@ -474,7 +475,7 @@ def main():
         if uuid.isdigit():
             content = n.mvofplaylist(uuid)
             if args.path :
-                n.download(content,path)
+                n.download(content,args.path)
             else :
                 n.download(content)
         else :
@@ -484,7 +485,7 @@ def main():
         if uuid.isdigit():
             content = n.onemv(uuid)
             if args.path :
-                n.download(content,path)
+                n.download(content,args.path)
             else :
                 n.download(content)
         else :
@@ -494,7 +495,7 @@ def main():
         if uuid.isdigit():
             content = n.onesong(uuid)
             if args.path :
-                n.download(content,path)
+                n.download(content,args.path)
             else :
                 n.download(content)
         else :
